@@ -17,7 +17,7 @@ export class ContabilidadService {
 
   async getUsuariosDB(){
     try {
-      const usuarios = this.empleadoRepository.find();
+      const usuarios = await this.empleadoRepository.find();
       return usuarios;
     } catch (error) {
       throw new InternalServerErrorException(
