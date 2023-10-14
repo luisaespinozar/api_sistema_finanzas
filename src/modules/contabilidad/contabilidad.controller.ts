@@ -10,7 +10,7 @@ export class ContabilidadController {
     return this.contabilidadService.primeraFuncion();
   }
 
-  @Get('/usuarios')
+  @Get('/empleados')
   async obtenerUsuariosDB() {
     return await this.contabilidadService.getUsuariosDB();
   }

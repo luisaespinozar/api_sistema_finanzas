@@ -21,7 +21,7 @@ export class ContabilidadService {
       return usuarios;
     } catch (error) {
       throw new InternalServerErrorException(
-        `Error al obtener usuarios de la base de datos: ${error.message}`
+        `Error al obtener usuarios de la base de datos: ${error}`
       );
     }
   }

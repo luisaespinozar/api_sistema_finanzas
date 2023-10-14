@@ -1,10 +1,10 @@
 /* eslint-disable camelcase */
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import { Column, Entity, PrimaryColumn } from 'typeorm';
 
-@Entity({ name: 'empleados'})
+@Entity({name: 'Empleado'})
 export class Empleado {
 
-  @PrimaryGeneratedColumn({type: 'int'})
+  @PrimaryColumn({type: 'int'})
   ID_Empleado: number;
 
   @Column({ length: 50, nullable: true })

@@ -15,6 +15,7 @@ import { Empleado } from './modules/contabilidad/entities/empleados.entity';
     database: 'contableDB',
     entities: [Empleado],
     synchronize: true,
+    //logging: true,
   }),
   ContabilidadModule
 ],
