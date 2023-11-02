@@ -14,4 +14,9 @@ export class ContabilidadController {
   async obtenerUsuariosDB() {
     return await this.contabilidadService.getUsuariosDB();
   }
+
+  @Get('/razonesContables')
+  async obtenerRznContablesDB() {
+    return await this.contabilidadService.getRazonesContablesDB();
+  }
 }
