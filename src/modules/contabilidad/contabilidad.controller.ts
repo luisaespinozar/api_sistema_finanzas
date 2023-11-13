@@ -1,4 +1,5 @@
-import { Controller, Get } from '@nestjs/common';
+/* eslint-disable max-len */
+import { Controller, Get, Query } from '@nestjs/common';
 import { ContabilidadService } from './contabilidad.service';
 
 @Controller('contabilidad')
@@ -18,5 +19,11 @@ export class ContabilidadController {
   @Get('/razonesContables')
   async obtenerRznContablesDB() {
     return await this.contabilidadService.getRazonesContablesDB();
+  }
+
+  @Get('/razonesContablesDetalle')
+  async obtenerRznContablesDetDB(@Query() idRazonContable: {idRazonContable: number}) {
+    return await this.contabilidadService
+      .getRazonesContablesDetalleDB(idRazonContable);
   }
 }

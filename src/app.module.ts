@@ -5,6 +5,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { ContabilidadModule } from './modules/contabilidad/contabilidad.module';
 import { Empleado } from './modules/contabilidad/entities/empleados.entity';
 import { RazonContable } from './modules/contabilidad/entities/razones-contable.entity';
+import { RazonContableDetalle } from './modules/contabilidad/entities/razones-contable-detalle.entity';
 
 @Module({
   imports: [TypeOrmModule.forRoot({
@@ -14,7 +15,7 @@ import { RazonContable } from './modules/contabilidad/entities/razones-contable.
     username: 'usap',
     password: 'Usap1234!',
     database: 'contableDB',
-    entities: [Empleado, RazonContable],
+    entities: [Empleado, RazonContable, RazonContableDetalle],
     synchronize: true,
     //logging: true,
   }),
