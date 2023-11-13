@@ -46,9 +46,6 @@ export class ContabilidadService {
 
   async getRazonesContablesDetalleDB(qParams: {idRazonContable: number}){
     try {
-      console.log('idRazonContable: ', qParams.idRazonContable);
-      console.log('idRazonContable 2: ', typeof qParams);
-
       const razonesContablesDetalle =
         await this.razonContableDetalleRepo
           .findOne({where: {ID_Razon_Contable: qParams.idRazonContable}});
