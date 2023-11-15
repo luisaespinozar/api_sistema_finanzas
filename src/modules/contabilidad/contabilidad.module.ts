@@ -5,12 +5,14 @@ import { Empleado } from './entities/empleados.entity';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { RazonContable } from './entities/razones-contable.entity';
 import { RazonContableDetalle } from './entities/razones-contable-detalle.entity';
+import { Pasivos } from './entities/pasivo.entity';
 
 @Module({
   imports: [TypeOrmModule.forFeature([
     Empleado,
     RazonContable,
-    RazonContableDetalle
+    RazonContableDetalle,
+    Pasivos,
   ])],
   controllers: [ContabilidadController],
   providers: [ContabilidadService],

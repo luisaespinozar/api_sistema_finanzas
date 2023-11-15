@@ -5,6 +5,7 @@ import { Repository } from 'typeorm';
 import { InjectRepository } from '@nestjs/typeorm';
 import { RazonContable } from './entities/razones-contable.entity';
 import { RazonContableDetalle } from './entities/razones-contable-detalle.entity';
+import { Pasivos } from './entities/pasivo.entity';
 
 @Injectable()
 export class ContabilidadService {
@@ -16,6 +17,8 @@ export class ContabilidadService {
     private razonContableRepo: Repository<RazonContable>,
     @InjectRepository(RazonContableDetalle)
     private razonContableDetalleRepo: Repository<RazonContableDetalle>,
+    @InjectRepository(Pasivos)
+    private pasivoRepository: Repository<Pasivos>,
   ) {}
 
   public async primeraFuncion() {
@@ -59,4 +62,16 @@ export class ContabilidadService {
       );
     }
   }
+  async getPasivoDB(){
+    try {
+      const pasivo = await this.pasivoRepository.find();
+      return pasivo;
+    } catch (error) {
+      throw new InternalServerErrorException(
+        `Error al obtener pasivos de la base de datos: ${error}`
+      );
+    }
+  }
+
+ 
 }

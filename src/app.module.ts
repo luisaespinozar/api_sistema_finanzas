@@ -6,7 +6,7 @@ import { ContabilidadModule } from './modules/contabilidad/contabilidad.module';
 import { Empleado } from './modules/contabilidad/entities/empleados.entity';
 import { RazonContable } from './modules/contabilidad/entities/razones-contable.entity';
 import { RazonContableDetalle } from './modules/contabilidad/entities/razones-contable-detalle.entity';
-
+import { Pasivos } from './modules/contabilidad/entities/pasivo.entity';
 @Module({
   imports: [TypeOrmModule.forRoot({
     type: 'mysql',
@@ -15,7 +15,7 @@ import { RazonContableDetalle } from './modules/contabilidad/entities/razones-co
     username: 'usap',
     password: 'Usap1234!',
     database: 'contableDB',
-    entities: [Empleado, RazonContable, RazonContableDetalle],
+    entities: [Empleado, RazonContable, RazonContableDetalle,Pasivos],
     synchronize: true,
     //logging: true,
   }),

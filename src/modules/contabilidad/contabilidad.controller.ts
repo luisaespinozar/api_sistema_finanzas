@@ -1,6 +1,8 @@
 /* eslint-disable max-len */
 import { Controller, Get, Query } from '@nestjs/common';
 import { ContabilidadService } from './contabilidad.service';
+import { Pasivos } from './entities/pasivo.entity';
+
 
 @Controller('contabilidad')
 export class ContabilidadController {
@@ -26,4 +28,12 @@ export class ContabilidadController {
     return await this.contabilidadService
       .getRazonesContablesDetalleDB(idRazonContable);
   }
+  @Get('/pasivos')
+  async obtenerPasivos() {
+    return await this.contabilidadService.getPasivoDB();
+  }
+
 }
+
+
+
