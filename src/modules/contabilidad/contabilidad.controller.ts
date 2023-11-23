@@ -32,10 +32,7 @@ export class ContabilidadController {
   async obtenerPasivos() {
     return await this.contabilidadService.getPasivoDB();
   }
-  @Get('/balancegeneral')
-  async obtenerbalancegeneral() {
-    return await this.contabilidadService.getBalancegeneralDB();
-  }
+
 }
 
 
