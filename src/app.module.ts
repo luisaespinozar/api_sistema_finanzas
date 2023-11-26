@@ -7,6 +7,7 @@ import { Empleado } from './modules/contabilidad/entities/empleados.entity';
 import { RazonContable } from './modules/contabilidad/entities/razones-contable.entity';
 import { RazonContableDetalle } from './modules/contabilidad/entities/razones-contable-detalle.entity';
 import { Pasivos } from './modules/contabilidad/entities/pasivo.entity';
+
 @Module({
   imports: [TypeOrmModule.forRoot({
     type: 'mysql',
