@@ -5,8 +5,14 @@ import { Repository } from 'typeorm';
 import { InjectRepository } from '@nestjs/typeorm';
 import { RazonContable } from './entities/razones-contable.entity';
 import { RazonContableDetalle } from './entities/razones-contable-detalle.entity';
+import { Activos } from './entities/activo.entity';
 import { Pasivos } from './entities/pasivo.entity';
 import { BalanceGeneral } from './entities/balancegeneral.entity';
+import { PatrimonioNeto } from './entities/patrimonio.entity';
+import { MargenUtilidadOperacional } from './entities/margenutilidadOperacional.entity';
+import { CapitalTrabajoNetoOperativo } from './entities/capitaltrabajoNetoOperativo.entitty';
+import { CorrienteRazon } from './entities/CorrienteRazon.entity';
+
 
 @Injectable()
 export class ContabilidadService {
@@ -22,6 +28,16 @@ export class ContabilidadService {
     private pasivoRepository: Repository<Pasivos>,
     @InjectRepository(BalanceGeneral)
     private balancegeneralReposity: Repository<BalanceGeneral>,
+    @InjectRepository(Activos)
+    private activoRepository: Repository<Activos>,
+    @InjectRepository(PatrimonioNeto)
+    private patrimonioRepository: Repository<PatrimonioNeto>,
+    @InjectRepository(MargenUtilidadOperacional)
+    private margenutilidadRepository: Repository<MargenUtilidadOperacional>,
+    @InjectRepository(CapitalTrabajoNetoOperativo)
+    private CapitaltrabajoRepository: Repository<CapitalTrabajoNetoOperativo>,
+    @InjectRepository(CorrienteRazon)
+    private CorrienteRazonRepository: Repository<CorrienteRazon>,
   ) {}
 
   public async primeraFuncion() {
@@ -75,6 +91,9 @@ export class ContabilidadService {
       );
     }
   }
+
+
+
   async getBalancegeneralDB(){
     try {
       const balancegeneral = await this.balancegeneralReposity.find();
@@ -85,5 +104,57 @@ export class ContabilidadService {
       );
     }
   }
- 
+  async getActivos(){
+    try {
+      const activo = await this.activoRepository.find();
+      return activo;
+    } catch (error) {
+      throw new InternalServerErrorException(
+        `Error al obtener activos general de la base de datos: ${error}`
+      );
+    }
+  }
+  async getPatrimonioNetoDB(){
+    try {
+      const patrimonio = await this.patrimonioRepository.find();
+      return patrimonio;
+    } catch (error) {
+      throw new InternalServerErrorException(
+        `Error al obtener patrimonio neto de la base de datos: ${error}`
+      );
+    }
+  }
+  async getMargenUtilidadOperacionalDB(){
+    try {
+      const margenutilidadnetaoperacional = await this.margenutilidadRepository.find();
+      return margenutilidadnetaoperacional;
+    } catch (error) {
+      throw new InternalServerErrorException(
+        `Error al obtener margen de utilidad neto de la base de datos: ${error}`
+      );
+    }
+  }
+  async getCapitalTrabajoOperativoDB(){
+    try {
+      const capitaltrabajonetooperacional = await this.CapitaltrabajoRepository.find();
+      return capitaltrabajonetooperacional;
+    } catch (error) {
+      throw new InternalServerErrorException(
+        `Error al obtener capital de trabajo operacional de la base de datos: ${error}`
+      );
+    }
+  }
+
+
+
+  async getRazonCorrienteDB(){
+    try {
+      const RazonCorriente = await this.CorrienteRazonRepository.find();
+      return RazonCorriente;
+    } catch (error) {
+      throw new InternalServerErrorException(
+        `Error al obtener razon corriente de la base de datos: ${error}`
+      );
+    }
+  }
 }

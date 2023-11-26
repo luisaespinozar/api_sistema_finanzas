@@ -2,7 +2,7 @@
 import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity({ name: 'Activos' })
-export class Pasivos {
+export class Activos {
 
   @PrimaryGeneratedColumn()
   ID: number;
@@ -11,7 +11,7 @@ export class Pasivos {
   NombreActivo: string;
 
   @Column({ length: 255 })
-  Descripcion: string
+  Descripcion: string;
 
   @Column({ type: 'date' })
   FechaRegistro: Date;

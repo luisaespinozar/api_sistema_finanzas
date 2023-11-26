@@ -32,6 +32,30 @@ export class ContabilidadController {
   async obtenerPasivos() {
     return await this.contabilidadService.getPasivoDB();
   }
+  @Get('/activos')
+  async obtenerActivos() {
+    return await this.contabilidadService.getActivos();
+  }
+  @Get('/balancegeneral')
+  async obtenerbalancegeneral() {
+    return await this.contabilidadService.getBalancegeneralDB();
+  }
+  @Get('/patrimonioneto')
+  async obtenerPatrimonioNetoDB() {
+    return await this.contabilidadService.getPatrimonioNetoDB();
+  }
+  @Get('/margenutilidadnetaoperacional')
+  async obtenerMargenUtilidadOperacionalDB() {
+    return await this.contabilidadService.getMargenUtilidadOperacionalDB();
+  }
+  @Get('/capitaltrabajonetooperacional')
+  async CapitalTrabajoOperativoDB() {
+    return await this.contabilidadService.getCapitalTrabajoOperativoDB();
+  }
+  @Get('/razoncorriente')
+  async RazonCorrienteDB() {
+    return await this.contabilidadService.getRazonCorrienteDB();
+  }
 
 }
 
