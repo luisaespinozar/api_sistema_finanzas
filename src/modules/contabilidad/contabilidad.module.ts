@@ -4,7 +4,6 @@ import { ContabilidadController } from './contabilidad.controller';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { Empleado } from './entities/empleados.entity';
 import { MargenBrutoUtilidad } from './entities/margen-bruto-utilidad.entity';
-import { RazonContableDetalle } from './entities/razones-contable-detalle.entity';
 import { RazonContable } from './entities/razones-contable.entity';
 import { RazonContableDetalle } from './entities/razones-contable-detalle.entity';
 import { Pasivos } from './entities/pasivo.entity';
