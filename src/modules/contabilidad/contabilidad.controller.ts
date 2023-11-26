@@ -57,6 +57,35 @@ export class ContabilidadController {
     return await this.contabilidadService.getRazonCorrienteDB();
   }
 
+
+  @Get('/margenBrutoUtilidad')
+  async obtenerMrgBrutoUti() {
+    return await this.contabilidadService
+      .getMargenBrutoUtilidadDB();
+  }
+  @Get('/margenNetoUtilidad')
+  async obtenerMrgNetoUti() {
+    return await this.contabilidadService
+      .getMargenNetoUtilidadDB();
+  }
+
+  @Get('/rentabilidadCapital')
+  async obtenerrentacap() {
+    return await this.contabilidadService
+      .getRentabilidadCapitalDB();
+  }
+
+  @Get('/rotacionInventario')
+  async obtenerRinv() {
+    return await this.contabilidadService
+      .getRotacionInventarioDB();
+  }
+
+  @Get('/pruebaAcida')
+  async obtenerPruebaAcida() {
+    return await this.contabilidadService
+      .getPruebaAcidaDB();
+  }
 }
 
 

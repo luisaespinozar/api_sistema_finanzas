@@ -18,14 +18,20 @@ import { CorrienteRazon } from './modules/contabilidad/entities/CorrienteRazon.e
 
 @Module({
   imports: [TypeOrmModule.forRoot({
+    autoLoadEntities: true,
     type: 'mysql',
     host: '3.81.95.53',
     port: 3306,
     username: 'usap',
     password: 'Usap1234!',
     database: 'contableDB',
-    entities: [Empleado, RazonContable, RazonContableDetalle,Pasivos,BalanceGeneral,Activos,PatrimonioNeto,MargenUtilidadOperacional,CapitalTrabajoNetoOperativo,CorrienteRazon,],
-    synchronize: false,
+    // entities: [
+    //   Empleado,
+    //   RazonContable,
+    //   RazonContableDetalle,
+    //   MargenBrutoUtilidad
+    // ],
+    synchronize: true,
     //logging: true,
   }),
   ContabilidadModule
