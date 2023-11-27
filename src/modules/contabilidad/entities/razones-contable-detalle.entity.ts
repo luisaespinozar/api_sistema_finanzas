@@ -35,7 +35,7 @@ export class RazonContableDetalle {
   @Column({ type: 'decimal', nullable: true, comment: 'Rotacion Cuentas por Pagar' })
   RCP: number;
 
-  @Column({ type: 'decimal', nullable: true, comment: 'PlazoPromedio cuenas por Pagar' })
+  @Column({ type: 'decimal', nullable: true, comment: 'PlazoPromedio cuenas por pgar' })
   PPCP: number;
 
   @ManyToOne(() => RazonContable)
