@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 /* eslint-disable camelcase */
 import { Injectable, InternalServerErrorException } from '@nestjs/common';
 import { Empleado } from './entities/empleados.entity';
@@ -17,6 +18,8 @@ import { MargenNetoUtilidad } from './entities/margen-neto-utilidad.entity';
 import { RentabilidadCapital } from './entities/rentabilidad-capital.entity';
 import { RotacionInventario } from './entities/rotacion-inventario.entity';
 import { PruebaAcida } from './entities/prueba-acida.entity';
+import { ActivosRotacion } from './entities/RotacionActivos.entity';
+import { ActivosRentabilidad} from './entities/RentabilidadActivos.entity';
 
 
 @Injectable()
@@ -53,6 +56,10 @@ export class ContabilidadService {
     private rotacionInvRepo: Repository<RotacionInventario>,
     @InjectRepository(PruebaAcida)
     private pruebaAcidaRepo: Repository<PruebaAcida>,
+    @InjectRepository(ActivosRotacion)
+    private ActivosRotacionRepo: Repository<ActivosRotacion>,
+    @InjectRepository(ActivosRentabilidad)
+    private ActivosRentabilidadRepo: Repository<ActivosRentabilidad>,
   ) {}
 
   public async primeraFuncion() {
@@ -223,10 +230,38 @@ export class ContabilidadService {
       return pruebaAcida ?? {result: 'No se encontró el detalle de la razón contable'};
     } catch (error) {
       throw new InternalServerErrorException(
-        `Error al obtener la preuba acida de la base de datos: ${error}`
+        `Error al obtener la prueba acida de la base de datos: ${error}`
       );
     }
   }
+
+  async getActivosRotacionDB(){
+    try {
+      const activosrotacion =
+        await this.ActivosRotacionRepo.find();
+      return activosrotacion ?? {result: 'No se encontró el detalle de la razón contable'};
+    } catch (error) {
+      throw new InternalServerErrorException(
+        `Error al obtener rotacion de activos de la base de datos: ${error}`
+      );
+    }
+  }
+
+
+
+  async getActivosRentabilidadDB(){
+    try {
+      const activosrentabilidad =
+        await this.ActivosRentabilidadRepo.find();
+      return activosrentabilidad ?? {result: 'No se encontró el detalle de la razón contable'};
+    } catch (error) {
+      throw new InternalServerErrorException(
+        `Error al obtener la rentabilidad de activos de la base de datos: ${error}`
+      );
+    }
+  }
+
+
 }
 
 

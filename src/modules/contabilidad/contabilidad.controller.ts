@@ -1,7 +1,6 @@
 /* eslint-disable max-len */
 import { Controller, Get, Query } from '@nestjs/common';
 import { ContabilidadService } from './contabilidad.service';
-import { Pasivos } from './entities/pasivo.entity';
 
 
 @Controller('contabilidad')
@@ -85,6 +84,18 @@ export class ContabilidadController {
   async obtenerPruebaAcida() {
     return await this.contabilidadService
       .getPruebaAcidaDB();
+  }
+
+  @Get('/rotacionactivos')
+  async obteneractivosrotacion() {
+    return await this.contabilidadService
+      .getActivosRotacionDB();
+  }
+
+  @Get('/rentabilidadactivos')
+  async obteneractivosrentabilidad() {
+    return await this.contabilidadService
+      .getActivosRentabilidadDB();
   }
 }
 

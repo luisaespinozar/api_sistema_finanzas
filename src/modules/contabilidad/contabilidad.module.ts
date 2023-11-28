@@ -17,6 +17,8 @@ import { MargenNetoUtilidad } from './entities/margen-neto-utilidad.entity';
 import { RentabilidadCapital } from './entities/rentabilidad-capital.entity';
 import { RotacionInventario } from './entities/rotacion-inventario.entity';
 import { PruebaAcida } from './entities/prueba-acida.entity';
+import { ActivosRentabilidad } from './entities/RentabilidadActivos.entity';
+import { ActivosRotacion } from './entities/RotacionActivos.entity';
 
 
 @Module({
@@ -36,6 +38,8 @@ import { PruebaAcida } from './entities/prueba-acida.entity';
     RentabilidadCapital,
     RotacionInventario,
     PruebaAcida,
+    ActivosRentabilidad,
+    ActivosRotacion
   ])],
   controllers: [ContabilidadController],
   providers: [ContabilidadService],
