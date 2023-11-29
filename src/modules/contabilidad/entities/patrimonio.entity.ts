@@ -1,6 +1,7 @@
 /* eslint-disable camelcase */
 import { Column, Entity, PrimaryColumn, PrimaryGeneratedColumn } from 'typeorm';
 
+
 @Entity({ name: 'PatrimonioNeto' })
 export class PatrimonioNeto {
 
@@ -15,4 +16,7 @@ export class PatrimonioNeto {
 
   @Column({ type: 'date' })
   Fecha: Date;
+
+  @Column({ length: 50 })
+  descripcion: string;
 }

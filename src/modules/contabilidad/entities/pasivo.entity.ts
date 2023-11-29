@@ -15,4 +15,7 @@ export class Pasivos {
 
   @Column({ type: 'date' })
   fecha_registro: Date;
+  
+  @Column({ length: 50 })
+  descripcion: string;
 }
